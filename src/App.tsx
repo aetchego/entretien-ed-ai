@@ -1,11 +1,13 @@
-import "./App.css";
+import React, { useState } from 'react'
+import './App.css'
+import { Button } from './components/ui/button'
 
 function App() {
   return (
     <>
-      <div>Hello</div>
+    <Button>Click me</Button>
     </>
-  );
+  )
 }
 
-export default App;
+export default App
