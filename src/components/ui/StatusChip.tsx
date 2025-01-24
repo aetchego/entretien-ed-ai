@@ -1,5 +1,8 @@
 import type React from "react";
-import { AnswerStatus, AnswerStatusLabel } from "../../types/evaluation";
+import {
+  AnswerStatus,
+  AnswerStatusLabel,
+} from "../../features/evaluation/types";
 
 interface StatusChipProps {
   name: string;

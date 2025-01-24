@@ -1,4 +1,12 @@
-import { StudentId, Student, ExamId, Exam, StudentExamId, StudentExam, AnswerStatus } from "../types/evaluation";
+import {
+  StudentId,
+  Student,
+  ExamId,
+  Exam,
+  StudentExamId,
+  StudentExam,
+  AnswerStatus,
+} from "../features/evaluation/types";
 
 export class EdService {
   private static latency(ms: number) {

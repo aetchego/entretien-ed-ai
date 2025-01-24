@@ -1,7 +1,11 @@
 import React, { useEffect, useRef } from "react";
-import MessageBubble from "../../components/Conversation/MessageBubble";
-import MessageInput from "../../components/Conversation/MessageInput";
-import { BOT_USR, useConversation } from "../../hooks/useConversation";
+import {
+  BOT_USR,
+  useConversation,
+} from "../../features/conversation/hooks/useConversation";
+import MessageBubble from "../../features/conversation/components/MessageBubble";
+import MessageInput from "../../features/conversation/components/MessageInput";
+import ConversationLayout from "../../layouts/ConversationLayout";
 
 const Conversation = () => {
   const { messages, onSendMessage } = useConversation();
@@ -18,7 +22,7 @@ const Conversation = () => {
   }, [messages]);
 
   return (
-    <div className="flex flex-col justify-end h-screen px-[50px] py-4">
+    <ConversationLayout>
       <div className="h-[90%] pb-10 overflow-y-auto">
         {messages.map((msg, index) => (
           <div
@@ -43,7 +47,7 @@ const Conversation = () => {
       <div className="flex-1 h-[20%]">
         <MessageInput onSendMessage={onSendMessage} />
       </div>
-    </div>
+    </ConversationLayout>
   );
 };
 

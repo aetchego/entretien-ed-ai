@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Message } from "../types/conversation";
+import { Message } from "../types";
 import { Server } from "mock-socket";
 import { v4 as uuidv4 } from "uuid";
 

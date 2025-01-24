@@ -1,4 +1,4 @@
-import { AnswerStatus, AnswerStatusLabel } from "../types/evaluation";
+import { AnswerStatus, AnswerStatusLabel } from "../types";
 
 export const mapAnswerStatusToLabel = (
   status: AnswerStatus

@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
-import { EdService } from "../services/EDService";
-import { Exam, Student, StudentExam } from "../types/evaluation";
+import { EdService } from "../../../services/EDService";
+import { Exam, Student, StudentExam } from "../types";
 
 type Evaluation = {
   student: Student | null;

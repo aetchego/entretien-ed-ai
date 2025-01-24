@@ -1,9 +1,9 @@
 import React, { useMemo } from "react";
-import StatusChip from "../../ui/StatusChip";
-import Block from "../../ui/Block";
-import { groupByFirstNumber } from "../../../utils/evaluation";
-import { AnswerStatus } from "../../../types/evaluation";
-import { mapAnswerStatusToLabel } from "../../../mappers/evaluation";
+import { groupByFirstNumber } from "../../utils";
+import { mapAnswerStatusToLabel } from "../../mappers";
+import { AnswerStatus } from "../../types";
+import Block from "../../../../components/ui/Block";
+import StatusChip from "../../../../components/ui/StatusChip";
 
 type Answer = {
   number: string;

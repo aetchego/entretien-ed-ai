@@ -1,26 +1,29 @@
-import type React from "react"
-import { useState } from "react"
-import { Send } from "lucide-react"
-import { Input } from "../../ui/input"
-import { Button } from "../../ui/button"
+import type React from "react";
+import { useState } from "react";
+import { Send } from "lucide-react";
+import { Input } from "../../../../components/ui/input";
+import { Button } from "../../../../components/ui/button";
 
 interface MessageInputProps {
-  onSendMessage: (message: string) => void
+  onSendMessage: (message: string) => void;
 }
 
 export default function MessageInput({ onSendMessage }: MessageInputProps) {
-  const [message, setMessage] = useState("")
+  const [message, setMessage] = useState("");
 
   const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
+    e.preventDefault();
     if (message.trim()) {
-      onSendMessage(message)
-      setMessage("")
+      onSendMessage(message);
+      setMessage("");
     }
-  }
+  };
 
   return (
-    <form onSubmit={handleSubmit} className="flex items-center space-x-2 p-4 bg-white border-t">
+    <form
+      onSubmit={handleSubmit}
+      className="flex items-center space-x-2 p-4 bg-white border-t"
+    >
       <Input
         type="text"
         placeholder="Écrivez votre message..."
@@ -33,5 +36,5 @@ export default function MessageInput({ onSendMessage }: MessageInputProps) {
         <span className="sr-only">Envoyer</span>
       </Button>
     </form>
-  )
+  );
 }

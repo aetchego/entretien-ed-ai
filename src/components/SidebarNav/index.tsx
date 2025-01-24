@@ -5,6 +5,8 @@ import { Home, Users } from "lucide-react";
 const navItems = [
   { name: "Accueil", path: "/", icon: Home },
   { name: "Conversation IA", path: "/conversation", icon: Users },
+  { name: "Évaluation Devoir", path: "/evaluations/123", icon: Users },
+  { name: "Évaluation inexistante", path: "/evaluations/wrong", icon: Users },
 ];
 
 const SidebarNav = () => {
@@ -13,7 +15,7 @@ const SidebarNav = () => {
   return (
     <nav className="flex flex-col h-screen bg-gray-100 w-64 border-r">
       <div className="p-4">
-        <h1 className="text-2xl font-bold">Mon App</h1>
+        <h1 className="text-2xl font-bold">ED AI</h1>
       </div>
       <div className="flex-1 overflow-y-auto">
         <div className="space-y-2 p-4">
