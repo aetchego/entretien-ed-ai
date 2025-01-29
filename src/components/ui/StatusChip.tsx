@@ -27,13 +27,16 @@ const StatusChip: React.FC<StatusChipProps> = ({ name, status, label }) => {
   };
 
   return (
-    <span
-      className={`inline-flex items-center p-3 rounded-md text-xs font-medium ${getStatusColor(
-        status
-      )}`}
-    >
-      {name}: {label}
-    </span>
+<div
+  className={`p-3 h-[20px] rounded-md text-xs font-medium flex items-center ${getStatusColor(
+    status
+  )}`}
+>
+  <div className="overflow-hidden whitespace-nowrap text-ellipsis">
+    {name}: {label}
+  </div>
+</div>
+
   );
 };
 

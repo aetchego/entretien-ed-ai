@@ -1,24 +1,19 @@
-import React from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Home, Users } from "lucide-react";
+import { Home, GraduationCap, MessageCircle } from "lucide-react";
 
 const navItems = [
   { name: "Accueil", path: "/", icon: Home },
-  { name: "Conversation IA", path: "/conversation", icon: Users },
-  { name: "Évaluation Devoir", path: "/evaluations/123", icon: Users },
-  { name: "Évaluation inexistante", path: "/evaluations/wrong", icon: Users },
+  { name: "Conversation IA", path: "/conversation", icon: MessageCircle },
+  { name: "Évaluation Devoir", path: "/evaluations", icon: GraduationCap },
 ];
 
 const SidebarNav = () => {
   const location = useLocation();
 
   return (
-    <nav className="flex flex-col h-screen bg-gray-100 w-64 border-r">
-      <div className="p-4">
-        <h1 className="text-2xl font-bold">ED AI</h1>
-      </div>
+    <nav className="flex flex-col h-screen bg-gray-100 w-20 border-r">
       <div className="flex-1 overflow-y-auto">
-        <div className="space-y-2 p-4">
+        <div className="space-y-2 p-2">
           {navItems.map((item) => (
             <Link
               key={item.path}
@@ -29,8 +24,9 @@ const SidebarNav = () => {
                   : "hover:bg-gray-200"
               }`}
             >
-              <item.icon className="mr-2 h-4 w-4" />
-              {item.name}
+              <div className="flex items-center justify-center mr-2">
+                <item.icon className="text-lg" />
+              </div>
             </Link>
           ))}
         </div>

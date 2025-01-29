@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import { useEffect } from "react";
 import {
   BOT_USR,
   useConversation,
@@ -6,19 +6,14 @@ import {
 import MessageBubble from "../../features/conversation/components/MessageBubble";
 import MessageInput from "../../features/conversation/components/MessageInput";
 import ConversationLayout from "../../layouts/ConversationLayout";
+import { useScroll } from "../../hooks/useScroll";
 
 const Conversation = () => {
   const { messages, onSendMessage } = useConversation();
-  const messagesEndRef = useRef<HTMLDivElement | null>(null);
-
-  const scrollToBottom = () => {
-    if (messagesEndRef.current) {
-      messagesEndRef.current.scrollIntoView({ behavior: "smooth" });
-    }
-  };
+  const { scrollToRef, scrollTo } = useScroll();
 
   useEffect(() => {
-    scrollToBottom();
+    scrollTo();
   }, [messages]);
 
   return (
@@ -42,7 +37,7 @@ const Conversation = () => {
             </div>
           </div>
         ))}
-        <div ref={messagesEndRef} />
+        <div ref={scrollToRef} />
       </div>
       <div className="flex-1 h-[20%]">
         <MessageInput onSendMessage={onSendMessage} />

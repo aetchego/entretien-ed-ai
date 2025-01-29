@@ -6,7 +6,7 @@ import {
   StudentExamId,
   StudentExam,
   AnswerStatus,
-} from "../features/evaluation/types";
+} from "../types";
 
 export class EdService {
   private static latency(ms: number) {

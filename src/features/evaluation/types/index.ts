@@ -11,7 +11,7 @@ export enum AnswerStatus {
   NOT_DONE = "NOT_DONE",
   WRONG = "WRONG",
   PARTIAL = "PARTIAL",
-  UNKNOW = "UNKNOWN"
+  UNKNOW = "UNKNOWN",
 }
 
 export enum AnswerStatusLabel {
@@ -19,7 +19,7 @@ export enum AnswerStatusLabel {
   NOT_DONE = "Absent",
   WRONG = "Faux",
   PARTIAL = "Partiel",
-  UNKNOW = "Inconnu"
+  UNKNOW = "Inconnu",
 }
 
 export type Exam = {
@@ -53,3 +53,14 @@ export type StudentExam = {
     status: AnswerStatus;
   }[];
 };
+
+export enum OverallStatusLabel {
+  VERY_WEAK = "Très insuffisant",
+  WEAK = "Non maîtrisé",
+  AVERAGE = "En cours d'acquisition",
+  GOOD = "Maitrisé",
+  VERY_GOOD = "Très bonne maîtrise",
+  UNKNOWN = "Inconnu",
+}
+
+export type Grade = [string, string];

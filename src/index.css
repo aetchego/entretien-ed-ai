@@ -26,7 +26,6 @@ a:hover {
   color: #535bf2;
 }
 
-
 body {
   margin: 0;
   min-width: 320px;
@@ -73,5 +72,45 @@ button:focus-visible {
 @layer base {
   :root {
     --radius: 0.5rem;
+  }
+}
+
+.typewriter {
+  overflow: hidden; /* Cache le texte qui dépasse */
+  white-space: nowrap; /* Empêche les retours à la ligne */
+  border-right: 2px solid white; /* Simule le curseur */
+  animation: typing 4s steps(40, end), blink-caret 0.5s step-end 8,
+    caret-disappear 4s forwards;
+}
+
+.typewriter p {
+  display: inline-block; /* Nécessaire pour l'effet de texte */
+}
+
+@keyframes typing {
+  from {
+    width: 0; /* Commence à 0 de largeur */
+  }
+  to {
+    width: 100%; /* Termine à la largeur complète du texte */
+  }
+}
+
+@keyframes blink-caret {
+  from,
+  to {
+    border-color: transparent; /* Le curseur clignote */
+  }
+  50% {
+    border-color: white;
+  }
+}
+
+@keyframes caret-disappear {
+  from {
+    border-color: white;
+  }
+  to {
+    border-color: transparent; /* Fait disparaître le curseur */
   }
 }
