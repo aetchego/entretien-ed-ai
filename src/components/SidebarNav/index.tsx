@@ -11,25 +11,24 @@ const SidebarNav = () => {
   const location = useLocation();
 
   return (
-    <nav className="flex flex-col h-screen bg-gray-100 w-20 border-r">
-      <div className="flex-1 overflow-y-auto">
-        <div className="space-y-2 p-2">
-          {navItems.map((item) => (
-            <Link
-              key={item.path}
-              to={item.path}
-              className={`flex items-center w-full px-4 py-2 text-gray-500 text-left ${
-                location.pathname === item.path
-                  ? "bg-gray-200"
-                  : "hover:bg-gray-200"
-              }`}
-            >
-              <div className="flex items-center justify-center mr-2">
-                <item.icon className="text-lg" />
-              </div>
-            </Link>
-          ))}
-        </div>
+    <nav className="flex flex-col h-full bg-gray-100 w-20 border-r">
+        <div className="flex-grow" />
+      <div className="flex-col h-[70%] space-y-8 ">
+        {navItems.map((item) => (
+          <Link
+            key={item.path}
+            to={item.path}
+            className={`flex items-center w-full px-4 py-2 text-gray-500 text-left ${
+              location.pathname === item.path
+                ? "bg-gray-200"
+                : "hover:bg-gray-200"
+            }`}
+          >
+            <div className="flex items-center justify-center mr-2">
+              <item.icon className="w-10 h-10" />
+            </div>
+          </Link>
+        ))}
       </div>
     </nav>
   );

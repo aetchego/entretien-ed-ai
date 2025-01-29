@@ -29,7 +29,7 @@ const Evaluation = () => {
       {!error && loading && <Loader />}
       {!error && !loading && (
         <>
-          <div className="w-full">
+          <div className="flex w-full justify-center">
             {examName && studentName && (
               <EvaluationHeader
                 name={examName}
@@ -38,13 +38,13 @@ const Evaluation = () => {
             )}
           </div>
           <div className="flex flex-col space-y-5">
-            <div className="flex flex-row space-x-5 items-stretch h-[50%]">
-              <div className="basis-[35%] flex-none min-h-full">
+            <div className="flex flex-row flex-wrap lg:space-x-5 space-y-5 lg:space-y-0 items-stretch">
+              <div className="lg:w-[35%] min-w-[500px] w-full">
                 {grades && aiDetection && (
                   <Status aiDetection={aiDetection} grades={grades} />
                 )}
               </div>
-              <div className="flex-grow min-h-full">
+              <div className="lg:flex-grow min-h-full">
                 {comment && <Comment comment={comment} />}
               </div>
             </div>

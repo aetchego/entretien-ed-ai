@@ -6,8 +6,11 @@ import { GraduationCap, MessageCircle } from "lucide-react";
 const LandingPage = () => {
   return (
     <PageLayout>
-      <div className="flex flex-col items-center justify-center h-full">
-        <div className="flex w-[80%] flex-row space-x-5">
+      <div className="flex flex-col items-center justify-center h-full space-y-10">
+        <div>
+          <h1 className="text-gray-500 text-8xl md:text-9xl">ED AI</h1>
+        </div>
+        <div className="flex w-[80%] flex-col md:flex-row md:space-x-5 space-y-5 md:space-y-0">
           <Block color="bg-indigo-500 hover:bg-white text-white hover:text-indigo-500">
             <Link
               key="conversation"

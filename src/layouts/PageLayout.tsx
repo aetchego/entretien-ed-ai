@@ -5,7 +5,7 @@ interface PageLayoutProps {
 }
 
 const PageLayout = ({ children }: PageLayoutProps) => {
-  return <div className="w-full h-full p-8 items-center">{children}</div>;
+  return <div className="w-full h-full p-2 md:p-8 items-center">{children}</div>;
 };
 
 export default PageLayout;
