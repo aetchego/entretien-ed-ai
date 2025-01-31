@@ -117,7 +117,7 @@ export class EdService {
             maxGrade: 3,
             status: AnswerStatus.PARTIAL,
           },
-        ],,
+        ],
       },
       "124": {
         id: "124",
