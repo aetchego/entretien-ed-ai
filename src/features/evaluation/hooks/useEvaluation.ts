@@ -12,31 +12,34 @@ export const useEvaluation = (id: string | undefined) => {
   const instance = useRef(new EdService());
 
   const fetchData = async (id: string) => {
+    let studentExam = null;
     try {
-      const studentExam = await instance.current.getStudentExam(id);
+      studentExam = await instance.current.getStudentExam(id);
+      setStudentExam(studentExam);
       const [student, exam, pdf] = await Promise.all([
         instance.current.getStudent(studentExam.studentId),
         instance.current.getExam(studentExam.examId),
-        instance.current.download(),
+        instance.current.downloadPdf(studentExam.id),
       ]);
-      setStudentExam(studentExam);
       setExam(exam);
       setStudent(student);
       setPdf(pdf);
     } catch (e) {
-      console.log("test error", e);
-      setError(true);
+      console.log("test", e, id, studentExam)
+      if (!studentExam) setError(true);
     } finally {
       setLoading(false);
     }
   };
 
   useEffect(() => {
-    if (id) {
-      fetchData(id);
-      setError(false);
-      setLoading(true);
-    }
+    setError(false);
+    setLoading(true);
+    setStudent(null);
+    setStudentExam(null);
+    setExam(null);
+    setPdf(null);
+    if (id) fetchData(id);
   }, [id]);
 
   const grades: Grade | null = useMemo(() => {
@@ -59,5 +62,7 @@ export const useEvaluation = (id: string | undefined) => {
     aiDetection: studentExam?.aiPerformance.detectionPerformance,
     comment: studentExam?.overallEvaluation?.comment,
     exercices: studentExam?.exercices,
+    specificImprovements: studentExam?.overallEvaluation.areasOfImprovement,
+    generalImprovements: exam?.areasOfImprovement,
   };
 };

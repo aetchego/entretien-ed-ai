@@ -6,9 +6,10 @@ import PageLayout from "../../layouts/PageLayout";
 import Exercices from "../../features/evaluation/components/Exercices";
 import Comment from "../../features/evaluation/components/Comments";
 import Status from "../../features/evaluation/components/Status";
+import Improvements from "../../features/evaluation/components/Improvements";
 
 const Evaluation = () => {
-  let { studentId } = useParams();
+  const { studentId } = useParams();
   const {
     loading,
     error,
@@ -18,7 +19,11 @@ const Evaluation = () => {
     aiDetection,
     comment,
     exercices,
+    pdf,
+    generalImprovements,
+    specificImprovements,
   } = useEvaluation(studentId);
+
   return (
     <PageLayout>
       {error && (
@@ -28,33 +33,40 @@ const Evaluation = () => {
       )}
       {!error && loading && <Loader />}
       {!error && !loading && (
-        <>
-          <div className="flex w-full justify-center">
+        <div className="flex flex-col space-y-5">
+          <div className="flex w-full justify-center mb-5">
             {examName && studentName && (
               <EvaluationHeader
+                pdfText={pdf}
                 name={examName}
                 studentName={studentName}
-              ></EvaluationHeader>
+              />
             )}
           </div>
-          <div className="flex flex-col space-y-5">
-            <div className="flex flex-row flex-wrap lg:space-x-5 space-y-5 lg:space-y-0 items-stretch">
-              <div className="lg:w-[35%] min-w-[500px] w-full">
-                {grades && aiDetection && (
-                  <Status aiDetection={aiDetection} grades={grades} />
-                )}
-              </div>
-              <div className="lg:flex-grow min-h-full">
-                {comment && <Comment comment={comment} />}
-              </div>
+          <div className="grid gap-5 grid-cols-1 lg:grid-cols-3">
+            <div className="lg:col-span-1">
+              {grades && aiDetection && (
+                <Status aiDetection={aiDetection} grades={grades} />
+              )}
             </div>
-            <div className="flex flex-row">
-              <div className="flex-1">
-                {exercices && <Exercices exercices={exercices} />}
-              </div>
+            <div className="lg:col-span-2">
+              {comment && <Comment comment={comment} />}
             </div>
           </div>
-        </>
+          <div className="grid gap-5 grid-cols-1 lg:grid-cols-3">
+            <div className="lg:col-span-1">
+              {exercices && <Exercices exercices={exercices} />}
+            </div>
+            <div className="lg:col-span-2">
+              {generalImprovements && specificImprovements && (
+                <Improvements
+                  specific={specificImprovements}
+                  general={generalImprovements}
+                />
+              )}
+            </div>
+          </div>
+        </div>
       )}
     </PageLayout>
   );

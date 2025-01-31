@@ -14,32 +14,30 @@ const Conversation = () => {
 
   useEffect(() => {
     scrollTo();
-  }, [messages]);
+  }, [scrollTo]);
 
   return (
     <ConversationLayout>
-      <div className="h-[90%] pb-10 overflow-y-auto">
+      <div className="flex-grow overflow-y-auto pb-4">
         {messages.map((msg, index) => (
           <div
             className={`flex flex-row ${
-              msg.username === "AI BOT" ? "justify-start" : "justify-end"
-            }`}
+              msg.username === BOT_USR ? "justify-start" : "justify-end"
+            } mb-4`}
             key={index}
           >
-            <div className="flex" key={index}>
-              <MessageBubble
-                time={msg.time}
-                username={msg.username}
-                message={msg.message}
-                amIAuthor={msg.username !== BOT_USR}
-                isTyping={msg.isTyping}
-              />
-            </div>
+            <MessageBubble
+              time={msg.time}
+              username={msg.username}
+              message={msg.message}
+              amIAuthor={msg.username !== BOT_USR}
+              isTyping={msg.isTyping}
+            />
           </div>
         ))}
         <div ref={scrollToRef} />
       </div>
-      <div className="flex-1 h-[20%]">
+      <div className="mt-4">
         <MessageInput onSendMessage={onSendMessage} />
       </div>
     </ConversationLayout>

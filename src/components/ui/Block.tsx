@@ -1,22 +1,16 @@
-import { ReactNode } from "react";
+import type React from "react";
 
-interface BlockProps {
+type BlockProps = {
   title?: string;
+  children: React.ReactNode;
   color?: string;
-  children: ReactNode;
-}
+};
 
-const Block = ({ title, color = "bg-white", children }: BlockProps) => {
+const Block = ({ title, children, color = "bg-gray-50" }: BlockProps) => {
   return (
-    <div
-      className={`flex flex-col w-full p-5 border-solid border-[1px] border-gray-100 rounded-sm ${color} space-y-5`}
-    >
-      {title && (
-        <div className="w-full">
-          <p className="font-semibold text-left">{title}</p>
-        </div>
-      )}
-      <div className="w-full">{children}</div>
+    <div className={`${color} rounded-lg p-5 h-full flex flex-col`}>
+      {title && <h2 className="text-lg font-bold mb-4">{title}</h2>}
+      <div className="flex-1">{children}</div>
     </div>
   );
 };
