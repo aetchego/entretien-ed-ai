@@ -82,12 +82,42 @@ export class EdService {
             status: AnswerStatus.NOT_DONE,
           },
           {
+            number: "1 - 3",
+            grade: 1,
+            maxGrade: 1,
+            status: AnswerStatus.CORRECT,
+          },
+          {
             number: "2 - 1.A",
             grade: 3,
             maxGrade: 3,
             status: AnswerStatus.CORRECT,
           },
-        ],
+          {
+            number: "2 - 1.B",
+            grade: 1,
+            maxGrade: 2,
+            status: AnswerStatus.PARTIAL,
+          },
+          {
+            number: "2 - 2",
+            grade: 0.5,
+            maxGrade: 2,
+            status: AnswerStatus.WRONG,
+          },
+          {
+            number: "3 - A",
+            grade: 3,
+            maxGrade: 3,
+            status: AnswerStatus.CORRECT,
+          },
+          {
+            number: "3 - B",
+            grade: 0,
+            maxGrade: 3,
+            status: AnswerStatus.PARTIAL,
+          },
+        ],,
       },
       "124": {
         id: "124",
